@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root { color-scheme: light; --ink: #4f4253; --muted: #8a7386; --cream: #fffaf5; --rose: #eaa4a2; --sage: #78977c; }
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: 'DM Sans', sans-serif; }
+button { font: inherit; }
+
+.garden-page { position: relative; isolation: isolate; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: max(28px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom)); background: radial-gradient(circle at 50% 10%, #fff 0, #fff8f2 39%, #faecea 100%); cursor: pointer; }
+.greeting { position: relative; z-index: 1; display: flex; width: min(100%, 440px); min-height: min(680px, calc(100svh - 48px)); flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.eyebrow, .for-name { margin: 0; color: var(--muted); font-size: 10px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; }.eyebrow { opacity: 0; transition: opacity .7s ease .15s; }.eyebrow.is-visible { opacity: 1; }.intro-scene { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 7vw, 42px); width: min(100%, 430px); margin: 0 auto 18px; }.intro-note { display: flex; min-width: 190px; flex-direction: column; align-items: center; gap: 12px; padding: 24px 18px; border: 1px solid #efd6d0; border-radius: 50% 50% 46% 46%; background: #fffdf9b8; box-shadow: 0 14px 34px #b67f7d12; }.intro-line { width: 30px; height: 1px; background: #ddb5ae; opacity: .7; }.tap-to-begin { margin: 0; color: #8f7482; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 5vw, 26px); font-style: italic; letter-spacing: .01em; animation: breathe 2.8s ease-in-out infinite; }.intro-flower { position: relative; width: 54px; height: 64px; opacity: .55; transform: translateY(10px) rotate(-10deg); }.intro-flower-right { transform: translateY(10px) rotate(12deg) scale(.86); }.intro-flower span { position: absolute; width: 25px; height: 34px; border-radius: 70% 30% 70% 30%; background: #eeb1b4; }.intro-flower span:nth-child(1) { top: 0; left: 15px; transform: rotate(0); }.intro-flower span:nth-child(2) { top: 14px; left: 1px; transform: rotate(-55deg); background: #f2b28f; }.intro-flower span:nth-child(3) { top: 14px; right: 1px; transform: rotate(55deg); background: #bdacd0; }.intro-flower b { position: absolute; top: 20px; left: 21px; width: 13px; height: 13px; border-radius: 50%; background: #e4a856; }.intro-flower::after { content: ''; position: absolute; top: 38px; left: 26px; width: 2px; height: 27px; border-radius: 2px; background: #92ac8e; }
+.for-name { margin-bottom: 10px; color: #bf777b; font-size: 12px; letter-spacing: .18em; }
+.bouquet { position: relative; width: min(92vw, 340px); margin: 12px auto 2px; opacity: 0; transform: translateY(16px) scale(.96); transition: opacity .7s ease .15s, transform .8s cubic-bezier(.2,.8,.25,1) .15s; pointer-events: none; }.bouquet.is-bloomed { opacity: 1; transform: translateY(0) scale(1); }
+.bouquet-art { display: block; width: 100%; overflow: visible; }
+.stem { stroke: var(--sage); stroke-linecap: round; stroke-width: 4; }
+.leaf { fill: #92ac8e; }
+.petal, .center, .wrap, .ribbon { stroke: #fff8f2; stroke-width: 2; }
+.petal-pink { fill: #eeb1b4; }.petal-coral { fill: #ef9c80; }.petal-yellow { fill: #f5c96c; }.petal-lilac { fill: #bdacd0; }.petal-lilac-dark { fill: #aa91bf; }.petal-peach { fill: #f2b28f; }
+.carnation-frill { fill: none; stroke: #fff8f2; stroke-linecap: round; stroke-width: 2; opacity: .72; }.center-gold { fill: #e4a856; }.center-rose { fill: #cd756e; }.center-brown { fill: #a96f4d; }.rose-line { stroke: #896b9b; stroke-linecap: round; stroke-width: 2.5; }.wrap { fill: #f1c9b7; opacity: .9; }.ribbon { fill: none; stroke: #d99191; stroke-linecap: round; stroke-width: 5; }
+.flower { transform-box: fill-box; transform-origin: center bottom; opacity: .08; transform: scale(.35) translateY(22px); transition: opacity .35s ease, transform .7s cubic-bezier(.2,.8,.25,1); }
+.bouquet.is-bloomed .flower { opacity: 1; transform: scale(1) translateY(0); animation: sway 5s ease-in-out 1.1s infinite; }
+.bouquet.is-bloomed .flower-daisy { transition-delay: .16s; animation-delay: 1.4s; }.bouquet.is-bloomed .flower-tulip { transition-delay: .3s; animation-delay: 1.55s; }.bouquet.is-bloomed .flower-sunflower { transition-delay: .44s; animation-delay: 1.7s; }.bouquet.is-bloomed .flower-rose { transition-delay: .04s; animation-delay: 1.25s; }.bouquet.is-bloomed .flower-daisy-right { transition-delay: .58s; animation-delay: 1.85s; }
+.flower-daisy { animation-delay: .2s, 1.4s; }.flower-tulip { animation-delay: .35s, 1.55s; }.flower-sunflower { animation-delay: .5s, 1.7s; }.flower-rose { animation-delay: .05s, 1.25s; }.flower-daisy-right { animation-delay: .65s, 1.85s; }
+@keyframes bloom { from { opacity: 0; transform: scale(.35) translateY(22px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes sway { 0%,100% { transform: rotate(-1deg); } 50% { transform: rotate(1.5deg); } }
+.quote-wrap { max-width: 350px; opacity: 0; transform: translateY(18px); transition: opacity .8s ease .8s, transform .8s cubic-bezier(.2,.8,.25,1) .8s; }.quote-wrap.is-visible { opacity: 1; transform: translateY(0); }.quote-wrap.is-changing { opacity: 0; transform: translateY(5px); transition: opacity .24s ease, transform .24s ease; }
+.letter-paper { position: relative; padding: 22px 24px 20px; border: 1px solid #efd6d0; border-radius: 4px; background: #fffdf9cc; box-shadow: 0 12px 30px #b67f7d18; }
+.letter-mark, .letter-signoff { color: #bf777b; font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-style: italic; }.letter-mark { display: block; text-align: left; }.letter-signoff { display: block; margin-top: -10px; text-align: right; }
+blockquote { margin: 10px 0 18px; color: #5b465b; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 6.7vw, 31px); font-style: italic; line-height: 1.25; }
+.tap-hint { margin: 0; color: #aa919c; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+footer { position: absolute; z-index: 1; bottom: max(18px, env(safe-area-inset-bottom)); color: #b79da4; font-size: 10px; letter-spacing: .12em; }
+.ambient-glow { position: absolute; width: 60vw; height: 60vw; max-width: 360px; max-height: 360px; border-radius: 50%; background: #f5c5c0; filter: blur(55px); opacity: .18; transition: opacity .8s ease; }.garden-page:not(.is-bloomed) .ambient-glow, .garden-page:not(.is-bloomed) .floating-petal, .garden-page:not(.is-bloomed) .sparkle, .garden-page:not(.is-bloomed) footer { opacity: 0; pointer-events: none; }
+.sparkle { position: absolute; z-index: 2; width: 5px; height: 5px; border-radius: 50%; background: #e7bd72; box-shadow: 0 0 0 4px #e7bd7220; animation: twinkle 3s ease-in-out infinite; }.sparkle-one { top: 22%; left: 8%; }.sparkle-two { top: 38%; right: 4%; animation-delay: 1.2s; }
+.floating-petal { position: absolute; width: 11px; height: 17px; border-radius: 80% 20% 80% 20%; background: #e8a7ac; opacity: .45; animation: float 8s ease-in-out infinite; }.petal-a { left: 9%; top: 22%; transform: rotate(25deg); }.petal-b { right: 10%; top: 18%; background: #efc076; animation-delay: 3s; }
+@keyframes twinkle { 50% { transform: scale(1.7); opacity: .45; } } @keyframes float { 50% { transform: translate(18px, 100px) rotate(170deg); opacity: .15; } } @keyframes breathe { 50% { opacity: .5; transform: translateY(2px); } }
+@media (prefers-color-scheme: dark) { :root { color-scheme: dark; --ink: #eadce2; --muted: #b99eae; } body { background: #241d2a; } .garden-page { background: radial-gradient(circle at 50% 10%, #403246 0, #2d2535 50%, #211b27 100%); } blockquote { color: #f1e4e8; } .tap-hint, footer { color: #b49cab; } .petal, .center, .wrap, .ribbon { stroke: #2d2535; } .ambient-glow { background: #ad6e8b; opacity: .16; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
